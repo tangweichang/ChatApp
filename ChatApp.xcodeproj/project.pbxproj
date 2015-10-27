@@ -7,21 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3228480F1BDDB20300B53C94 /* messagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228480E1BDDB20300B53C94 /* messagesVC.swift */; settings = {ASSET_TAGS = (); }; };
+		322848111BDDB3E200B53C94 /* messageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322848101BDDB3E200B53C94 /* messageCell.swift */; settings = {ASSET_TAGS = (); }; };
+		322848131BDE98BE00B53C94 /* groupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322848121BDE98BE00B53C94 /* groupVC.swift */; settings = {ASSET_TAGS = (); }; };
+		322848171BDE9A7100B53C94 /* groupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322848161BDE9A7100B53C94 /* groupCell.swift */; settings = {ASSET_TAGS = (); }; };
+		328ABF8B1BC5DFFE00F64762 /* conversationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328ABF8A1BC5DFFE00F64762 /* conversationController.swift */; settings = {ASSET_TAGS = (); }; };
 		32A8BD191BC19CB3004A7686 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8BD181BC19CB3004A7686 /* AppDelegate.swift */; };
 		32A8BD1B1BC19CB3004A7686 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8BD1A1BC19CB3004A7686 /* ViewController.swift */; };
 		32A8BD1E1BC19CB3004A7686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A8BD1C1BC19CB3004A7686 /* Main.storyboard */; };
 		32A8BD201BC19CB3004A7686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32A8BD1F1BC19CB3004A7686 /* Assets.xcassets */; };
 		32A8BD231BC19CB3004A7686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A8BD211BC19CB3004A7686 /* LaunchScreen.storyboard */; };
+		32A8BD2B1BC19E13004A7686 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8BD2A1BC19E13004A7686 /* SignupViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		32A8BD2D1BC19F36004A7686 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 32A8BD2C1BC19F36004A7686 /* user.png */; settings = {ASSET_TAGS = (); }; };
+		32A8BD2F1BC1A0FC004A7686 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A8BD2E1BC1A0FC004A7686 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
+		32A8BD311BC1A107004A7686 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A8BD301BC1A107004A7686 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
+		32A8BD331BC1A184004A7686 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A8BD321BC1A184004A7686 /* AudioToolbox.framework */; };
+		32A8BD351BC1A18C004A7686 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A8BD341BC1A18C004A7686 /* CFNetwork.framework */; };
+		32A8BD371BC1A193004A7686 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A8BD361BC1A193004A7686 /* CoreGraphics.framework */; };
+		32A8BD391BC1A19F004A7686 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A8BD381BC1A19F004A7686 /* CoreLocation.framework */; };
+		32A8BD3B1BC1A1A8004A7686 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A8BD3A1BC1A1A8004A7686 /* QuartzCore.framework */; };
+		32A8BD3D1BC1A1B9004A7686 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A8BD3C1BC1A1B9004A7686 /* Security.framework */; };
+		32A8BD3F1BC1A1C2004A7686 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A8BD3E1BC1A1C2004A7686 /* StoreKit.framework */; };
+		32A8BD411BC1A1CA004A7686 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A8BD401BC1A1CA004A7686 /* SystemConfiguration.framework */; };
+		32A8BD431BC1A1DF004A7686 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A8BD421BC1A1DF004A7686 /* libz.tbd */; };
+		32A8BD451BC1A1F6004A7686 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A8BD441BC1A1F6004A7686 /* libsqlite3.tbd */; };
+		32A8BD491BC1A265004A7686 /* ChatAppHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A8BD481BC1A265004A7686 /* ChatAppHeader.m */; settings = {ASSET_TAGS = (); }; };
+		32A8BD4F1BC1B6E9004A7686 /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8BD4E1BC1B6E9004A7686 /* UserVC.swift */; settings = {ASSET_TAGS = (); }; };
+		32A8BD511BC1B772004A7686 /* resultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8BD501BC1B772004A7686 /* resultCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		32A8BD151BC19CB3004A7686 /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3228480E1BDDB20300B53C94 /* messagesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messagesVC.swift; sourceTree = "<group>"; };
+		322848101BDDB3E200B53C94 /* messageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = messageCell.swift; sourceTree = "<group>"; };
+		322848121BDE98BE00B53C94 /* groupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupVC.swift; sourceTree = "<group>"; };
+		322848161BDE9A7100B53C94 /* groupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupCell.swift; sourceTree = "<group>"; };
+		328ABF891BC5DE1500F64762 /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		328ABF8A1BC5DFFE00F64762 /* conversationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conversationController.swift; sourceTree = "<group>"; };
 		32A8BD181BC19CB3004A7686 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32A8BD1A1BC19CB3004A7686 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		32A8BD1D1BC19CB3004A7686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32A8BD1F1BC19CB3004A7686 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32A8BD221BC19CB3004A7686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32A8BD241BC19CB3004A7686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32A8BD2A1BC19E13004A7686 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		32A8BD2C1BC19F36004A7686 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		32A8BD2E1BC1A0FC004A7686 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		32A8BD301BC1A107004A7686 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		32A8BD321BC1A184004A7686 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		32A8BD341BC1A18C004A7686 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		32A8BD361BC1A193004A7686 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		32A8BD381BC1A19F004A7686 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		32A8BD3A1BC1A1A8004A7686 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		32A8BD3C1BC1A1B9004A7686 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		32A8BD3E1BC1A1C2004A7686 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		32A8BD401BC1A1CA004A7686 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		32A8BD421BC1A1DF004A7686 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		32A8BD441BC1A1F6004A7686 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		32A8BD471BC1A264004A7686 /* ChatApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChatApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		32A8BD481BC1A265004A7686 /* ChatAppHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatAppHeader.m; sourceTree = "<group>"; };
+		32A8BD4E1BC1B6E9004A7686 /* UserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
+		32A8BD501BC1B772004A7686 /* resultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resultCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +74,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A8BD451BC1A1F6004A7686 /* libsqlite3.tbd in Frameworks */,
+				32A8BD431BC1A1DF004A7686 /* libz.tbd in Frameworks */,
+				32A8BD411BC1A1CA004A7686 /* SystemConfiguration.framework in Frameworks */,
+				32A8BD3F1BC1A1C2004A7686 /* StoreKit.framework in Frameworks */,
+				32A8BD3D1BC1A1B9004A7686 /* Security.framework in Frameworks */,
+				32A8BD3B1BC1A1A8004A7686 /* QuartzCore.framework in Frameworks */,
+				32A8BD391BC1A19F004A7686 /* CoreLocation.framework in Frameworks */,
+				32A8BD371BC1A193004A7686 /* CoreGraphics.framework in Frameworks */,
+				32A8BD351BC1A18C004A7686 /* CFNetwork.framework in Frameworks */,
+				32A8BD331BC1A184004A7686 /* AudioToolbox.framework in Frameworks */,
+				32A8BD311BC1A107004A7686 /* Parse.framework in Frameworks */,
+				32A8BD2F1BC1A0FC004A7686 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,17 +95,15 @@
 		32A8BD0C1BC19CB3004A7686 = {
 			isa = PBXGroup;
 			children = (
+				322848161BDE9A7100B53C94 /* groupCell.swift */,
+				32A8BD501BC1B772004A7686 /* resultCell.swift */,
+				32A8BD4E1BC1B6E9004A7686 /* UserVC.swift */,
+				32A8BD441BC1A1F6004A7686 /* libsqlite3.tbd */,
+				32A8BD421BC1A1DF004A7686 /* libz.tbd */,
+				32A8BD461BC1A209004A7686 /* framwork */,
 				32A8BD171BC19CB3004A7686 /* ChatApp */,
-				32A8BD161BC19CB3004A7686 /* Products */,
+				328ABF891BC5DE1500F64762 /* ChatApp.app */,
 			);
-			sourceTree = "<group>";
-		};
-		32A8BD161BC19CB3004A7686 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				32A8BD151BC19CB3004A7686 /* ChatApp.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		32A8BD171BC19CB3004A7686 /* ChatApp */ = {
@@ -57,11 +112,36 @@
 				32A8BD181BC19CB3004A7686 /* AppDelegate.swift */,
 				32A8BD1A1BC19CB3004A7686 /* ViewController.swift */,
 				32A8BD1C1BC19CB3004A7686 /* Main.storyboard */,
+				322848121BDE98BE00B53C94 /* groupVC.swift */,
+				322848101BDDB3E200B53C94 /* messageCell.swift */,
+				3228480E1BDDB20300B53C94 /* messagesVC.swift */,
+				328ABF8A1BC5DFFE00F64762 /* conversationController.swift */,
+				32A8BD2A1BC19E13004A7686 /* SignupViewController.swift */,
+				32A8BD301BC1A107004A7686 /* Parse.framework */,
+				32A8BD2E1BC1A0FC004A7686 /* Bolts.framework */,
+				32A8BD2C1BC19F36004A7686 /* user.png */,
 				32A8BD1F1BC19CB3004A7686 /* Assets.xcassets */,
 				32A8BD211BC19CB3004A7686 /* LaunchScreen.storyboard */,
 				32A8BD241BC19CB3004A7686 /* Info.plist */,
+				32A8BD481BC1A265004A7686 /* ChatAppHeader.m */,
+				32A8BD471BC1A264004A7686 /* ChatApp-Bridging-Header.h */,
 			);
 			path = ChatApp;
+			sourceTree = "<group>";
+		};
+		32A8BD461BC1A209004A7686 /* framwork */ = {
+			isa = PBXGroup;
+			children = (
+				32A8BD401BC1A1CA004A7686 /* SystemConfiguration.framework */,
+				32A8BD3E1BC1A1C2004A7686 /* StoreKit.framework */,
+				32A8BD3C1BC1A1B9004A7686 /* Security.framework */,
+				32A8BD3A1BC1A1A8004A7686 /* QuartzCore.framework */,
+				32A8BD381BC1A19F004A7686 /* CoreLocation.framework */,
+				32A8BD361BC1A193004A7686 /* CoreGraphics.framework */,
+				32A8BD341BC1A18C004A7686 /* CFNetwork.framework */,
+				32A8BD321BC1A184004A7686 /* AudioToolbox.framework */,
+			);
+			name = framwork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -81,7 +161,7 @@
 			);
 			name = ChatApp;
 			productName = ChatApp;
-			productReference = 32A8BD151BC19CB3004A7686 /* ChatApp.app */;
+			productReference = 328ABF891BC5DE1500F64762 /* ChatApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -90,6 +170,7 @@
 		32A8BD0D1BC19CB3004A7686 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = TangWeichang;
 				TargetAttributes = {
@@ -108,7 +189,7 @@
 				Base,
 			);
 			mainGroup = 32A8BD0C1BC19CB3004A7686;
-			productRefGroup = 32A8BD161BC19CB3004A7686 /* Products */;
+			productRefGroup = 32A8BD0C1BC19CB3004A7686;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -124,6 +205,7 @@
 			files = (
 				32A8BD231BC19CB3004A7686 /* LaunchScreen.storyboard in Resources */,
 				32A8BD201BC19CB3004A7686 /* Assets.xcassets in Resources */,
+				32A8BD2D1BC19F36004A7686 /* user.png in Resources */,
 				32A8BD1E1BC19CB3004A7686 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,8 +217,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A8BD491BC1A265004A7686 /* ChatAppHeader.m in Sources */,
+				32A8BD4F1BC1B6E9004A7686 /* UserVC.swift in Sources */,
+				32A8BD2B1BC19E13004A7686 /* SignupViewController.swift in Sources */,
 				32A8BD1B1BC19CB3004A7686 /* ViewController.swift in Sources */,
+				322848131BDE98BE00B53C94 /* groupVC.swift in Sources */,
+				3228480F1BDDB20300B53C94 /* messagesVC.swift in Sources */,
+				328ABF8B1BC5DFFE00F64762 /* conversationController.swift in Sources */,
+				322848111BDDB3E200B53C94 /* messageCell.swift in Sources */,
+				32A8BD511BC1B772004A7686 /* resultCell.swift in Sources */,
 				32A8BD191BC19CB3004A7686 /* AppDelegate.swift in Sources */,
+				322848171BDE9A7100B53C94 /* groupCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,10 +340,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ChatApp",
+				);
 				INFOPLIST_FILE = ChatApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = weichang.apptry.ChatApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ChatApp/ChatApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -260,10 +358,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ChatApp",
+				);
 				INFOPLIST_FILE = ChatApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = weichang.apptry.ChatApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ChatApp/ChatApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -286,6 +390,7 @@
 				32A8BD291BC19CB3004A7686 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
