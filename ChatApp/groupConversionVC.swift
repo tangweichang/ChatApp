@@ -1,19 +1,19 @@
 //
-//  conversationController.swift
+//  groupConversionVC.swift
 //  ChatApp
 //
-//  Created by TangWeichang on 10/7/15.
+//  Created by TangWeichang on 10/27/15.
 //  Copyright © 2015 TangWeichang. All rights reserved.
 //
 
 import UIKit
 
-var otherName = ""
-var otherProfileName = ""
+var groupConversationVC_title = ""
 
-class conversationController: UIViewController, UIScrollViewDelegate, UITextViewDelegate {
+class groupConversionVC: UIViewController, UIScrollViewDelegate, UITextViewDelegate {
+    
     @IBOutlet var resultScrollView: UIScrollView!
-
+    
     @IBOutlet var frameMessageView: UIView!
     
     @IBOutlet var lineLabel: UILabel!
@@ -22,111 +22,46 @@ class conversationController: UIViewController, UIScrollViewDelegate, UITextView
     @IBOutlet var messageTextView: UITextView!
     
     @IBOutlet var sendButton: UIButton!
-    var blockBtn = UIBarButtonItem()
-    var reportBtn = UIBarButtonItem()
+    
+    var myImg:UIImage? = UIImage()
+    
+    var resultImageFiles = [PFFile]()
+    var resultImageFiles2 = [PFFile]()
     
     
-    var isBlocked = false
+    var scrollViewOriginalY:CGFloat = 0
+    var frameMessageOriginalY:CGFloat = 0
     
-    @IBAction func sendbtn_clicked(sender: AnyObject) {
-        if isBlocked == true {
-            print("You are blocked")
-            return
-        }
-        
-        if blockBtn.title == "Unblock" {
-            print("You have blocked this User!!! unblock to send message")
-            return
-        }
-        
-        if messageTextView.text == "" {
-            print("no text")
-        } else {
-            var messageDBTable = PFObject(className: "Messages")
-            messageDBTable["sender"] = userName
-            messageDBTable["other"] = otherName
-            messageDBTable["message"] = self.messageTextView.text
-            messageDBTable.saveInBackgroundWithBlock({ (success, error) -> Void in
-                if success == true {
-                    print("message sent")
-                    self.messageTextView.text == ""
-                    self.mlabel.hidden = false
-                    self.refreshResults()
-                    
-                }
-            })
-        }
-        
-    }
-    
-    func blockBtn_clicked() {
-        if blockBtn.title == "Block" {
-            var addBlock = PFObject(className: "Block")
-            addBlock.setObject(userName, forKey: "user")
-            addBlock.setObject(otherName, forKey: "blocked")
-            addBlock.saveInBackgroundWithBlock({ (success, error) -> Void in
-                if error == nil {
-                    print("addBlock succeed")
-                }
-            })
-            self.blockBtn.title = "Unblock"
-        } else {
-            var query:PFQuery = PFQuery(className: "Block")
-            query.whereKey("user", equalTo: userName)
-            query.whereKey("blocked", equalTo: otherName)
-            query.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
-                if let objects = objects {
-                    for object in objects {
-                        object.deleteInBackground()
-                    }
-                    
-                    self.blockBtn.title = "Block"
-                }
-            })
-            
-        }
-        
-    }
-    
-    func reportBtn_clicked() {
-        print("report pressed")
-        var addReport = PFObject(className: "Report")
-        addReport.setObject(userName, forKey: "user")
-        addReport.setObject(otherName, forKey: "reported")
-        addReport.saveInBackgroundWithBlock { (success, error) -> Void in
-            if error != nil {
-                print("report successfully")
-            }
-        }
-    }
+    let mlabel = UILabel(frame: CGRectMake(5,10,200,20))
     
     var messageX:CGFloat = 37.0
     var messageY:CGFloat = 26.0
-    
-    
     var imgX:CGFloat = 3
     var imgY:CGFloat = 3
-    
     var frameX:CGFloat = 32.0
     var frameY:CGFloat = 21.0
     
     var messageArray = [String]()
     var senderArray = [String]()
-    var scrollViewOriginalY:CGFloat = 0
-    var frameMessageOriginalY:CGFloat = 0
     
-    var myImg:UIImage? = UIImage()
-    var otherImg:UIImage? = UIImage()
+    func textViewDidChange(textView: UITextView) {
+        if !messageTextView.hasText() {
+            self.mlabel.hidden = false
+        } else {
+            self.mlabel.hidden = true
+        }
+    }
     
-    var resultImageFiles = [PFFile]()
-    var resultImageFiles2 = [PFFile]()
+    func textViewDidEndEditing(textView: UITextView) {
+        if !messageTextView.hasText() {
+            self.mlabel.hidden = false
+        }
+    }
+
     
-    let mlabel = UILabel(frame: CGRectMake(5,10,200,20))
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         let theWidth = view.frame.size.width
         let theHeight = view.frame.size.height
@@ -140,7 +75,6 @@ class conversationController: UIViewController, UIScrollViewDelegate, UITextView
         
         scrollViewOriginalY = self.resultScrollView.frame.origin.y
         frameMessageOriginalY = self.frameMessageView.frame.origin.y
-        self.title = otherProfileName
         mlabel.text = "Type a message..."
         mlabel.backgroundColor = UIColor.clearColor()
         mlabel.textColor = UIColor.lightGrayColor()
@@ -151,151 +85,33 @@ class conversationController: UIViewController, UIScrollViewDelegate, UITextView
         let tapScrollViewGesture = UITapGestureRecognizer(target: self, action: "didTapScrollView")
         tapScrollViewGesture.numberOfTapsRequired = 1
         resultScrollView.addGestureRecognizer(tapScrollViewGesture)
-        
-        
-        blockBtn.title = ""
-        
-        blockBtn = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("blockBtn_clicked"))
-        reportBtn = UIBarButtonItem(title: "Report", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("reportBtn_clicked"))
-        var buttonArray = NSArray(objects: blockBtn, reportBtn)
-        self.navigationItem.rightBarButtonItems = buttonArray as? [UIBarButtonItem]
-        
-        
-    }
-    
-    func didTapScrollView() {
-        self.view.endEditing(true)
-    }
-    
-    func textViewDidChange(textView: UITextView) {
-        if !messageTextView.hasText() {
-            self.mlabel.hidden = false
-        } else {
-            self.mlabel.hidden = true
-        }
-    }
-    
-    func textViewDidEndEditing(textView: UITextView) {
-        if !messageTextView.hasText() {
-            self.mlabel.hidden = false
-        } 
-    }
-    
-    func keyboardWasShown(notification:NSNotification) {
-        let dict:NSDictionary = notification.userInfo!
-        let s:NSValue = dict.valueForKey(UIKeyboardFrameEndUserInfoKey) as! NSValue
-        let rect:CGRect = s.CGRectValue()
-        
-        UIView.animateWithDuration(0.3, delay: 0, options: .CurveLinear, animations: {
-            
-            self.resultScrollView.frame.origin.y = self.scrollViewOriginalY - rect.height
-            self.frameMessageView.frame.origin.y = self.frameMessageOriginalY - rect.height
-            
-            let bottomOffset:CGPoint = CGPointMake(0, self.resultScrollView.contentSize.height - self.resultScrollView.bounds.size.height)
-            self.resultScrollView.setContentOffset(bottomOffset, animated: false)
-            
-            }, completion: {
-                (finished:Bool) in
-                
-        })
 
+        // Do any additional setup after loading the view.
     }
-    
-    func keyboardWillHide(notification:NSNotification) {
-        //let dict:NSDictionary = notification.userInfo!
-        //let s:NSValue = dict.valueForKey(UIKeyboardFrameEndUserInfoKey) as! NSValue
-        UIView.animateWithDuration(0.3, delay: 0, options: .CurveLinear, animations: {
-            
-            self.resultScrollView.frame.origin.y = self.scrollViewOriginalY
-            self.frameMessageView.frame.origin.y = self.frameMessageOriginalY
-            
-            let bottomOffset:CGPoint = CGPointMake(0, self.resultScrollView.contentSize.height - self.resultScrollView.bounds.size.height)
-            self.resultScrollView.setContentOffset(bottomOffset, animated: false)
-            
-            }, completion: {
-                (finished:Bool) in
-                
-        })
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        
-        var checkQuery = PFQuery(className: "Block")
-        checkQuery.whereKey("user", equalTo: otherName)
-        checkQuery.whereKey("blocked", equalTo: userName)
-        var objects2 = checkQuery.findObjectsInBackgroundWithBlock { (objects2, error) -> Void in
-            if let objects2 = objects2 {
-                if objects2.count > 0 {
-                    self.isBlocked = true
-                } else {
-                    self.isBlocked = false
-                    
-                }
-                
-            }
-        }
-        
-        var blockQuery = PFQuery(className: "Block")
-        blockQuery.whereKey("user", equalTo: userName)
-        blockQuery.whereKey("blocked", equalTo: otherName)
-        
-        blockQuery.findObjectsInBackgroundWithBlock { (objects0, error) -> Void in
-            if let objects0 = objects0 {
-                if objects0.count > 0 {
-                    self.blockBtn.title = "Unblock"
-                    
-                } else {
-                    self.blockBtn.title = "Block"
-                }
-                
-            }
-        }
-        
-        
-        
-        var query = PFQuery(className: "_User")
-        query.whereKey("username", equalTo: userName)
-        self.resultImageFiles.removeAll(keepCapacity: false)
-
-        
-        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-            if let objects = objects {
-                for object in objects as! [PFUser] {
-                    self.resultImageFiles.append(object["photo"] as! PFFile)
-                    self.resultImageFiles[0].getDataInBackgroundWithBlock({ (imageData , error) -> Void in
-                        self.myImg = UIImage(data: imageData!)
-                        var query2 = PFQuery(className: "_User")
-                        query2.whereKey("username", equalTo: otherName)
-                        self.resultImageFiles2.removeAll(keepCapacity: false)
-                        
-                        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
-                            if let objects = objects {
-                                for object in objects as! [PFUser] {
-                                    self.resultImageFiles2.append(object["photo"] as! PFFile)
-                                    
-                                    self.resultImageFiles2[0].getDataInBackgroundWithBlock({ (imageData, error) -> Void in
-                                        if error == nil {
-                                            self.otherImg = UIImage(data: imageData!)
-                                            self.refreshResults()
-                                        }
-                                    })
-                                }
-                            }
-                        }
-                    })
-                }
-            }
-        }
-    }
-    
-                                
-          
-        
-        
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        self.title = groupConversationVC_title
+        
+        var query = PFQuery(className: "_User")
+        query.whereKey("username", equalTo: userName)
+        self.resultImageFiles.removeAll(keepCapacity: false)
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            for object in objects! {
+                self.resultImageFiles.append(object["photo"] as! PFFile)
+                self.resultImageFiles[0].getDataInBackgroundWithBlock({ (imageData, error) -> Void in
+                    if error == nil {
+                        self.myImg = UIImage(data: imageData!)
+                        self.refreshResults()
+                    }
+                })
+            }
+        }
     }
     
     func refreshResults() {
@@ -312,12 +128,10 @@ class conversationController: UIViewController, UIScrollViewDelegate, UITextView
         messageArray.removeAll(keepCapacity: false)
         senderArray.removeAll(keepCapacity: false)
         
-        let innerP1 = NSPredicate(format: "sender = %@ AND other = %@", userName, otherName)
-        var innerQ1:PFQuery = PFQuery(className: "Messages", predicate: innerP1)
-        let innerP2 = NSPredicate(format: "sender = %@ AND other = %@", otherName, userName)
-        var innerQ2:PFQuery = PFQuery(className: "Messages", predicate: innerP2)
         
-        var query = PFQuery.orQueryWithSubqueries([innerQ1,innerQ2])
+        
+        var query = PFQuery(className: "GroupMessages")
+        query.whereKey("group", equalTo: groupConversationVC_title)
         query.addAscendingOrder("createdAt")
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             if error == nil {
@@ -398,7 +212,23 @@ class conversationController: UIViewController, UIScrollViewDelegate, UITextView
                         self.frameY += frameLabel.frame.size.height + 20
                         
                         var img:UIImageView = UIImageView()
-                        img.image = self.otherImg
+                        
+                        var query = PFQuery(className: "_User")
+                        self.resultImageFiles2.removeAll(keepCapacity: false)
+                        query.whereKey("username", equalTo: self.senderArray[i])
+                        var objects = query.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
+                            for object in objects! {
+                                self.resultImageFiles2.append(object["photo"] as! PFFile)
+                                self.resultImageFiles2[0].getDataInBackgroundWithBlock({ (imageData, error) -> Void in
+                                    if error == nil {
+                                        img.image = UIImage(data: imageData!)
+                                        
+                                    }
+                                })
+                            }
+                        })
+                        
+                        
                         img.frame = CGRectMake(self.imgX, self.imgY, 34, 34)
                         
                         img.layer.zPosition = 30
@@ -418,6 +248,84 @@ class conversationController: UIViewController, UIScrollViewDelegate, UITextView
         }
     }
 
+    
+    func keyboardWasShown(notification:NSNotification) {
+        let dict:NSDictionary = notification.userInfo!
+        let s:NSValue = dict.valueForKey(UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let rect:CGRect = s.CGRectValue()
+        
+        UIView.animateWithDuration(0.3, delay: 0, options: .CurveLinear, animations: {
+            
+            self.resultScrollView.frame.origin.y = self.scrollViewOriginalY - rect.height
+            self.frameMessageView.frame.origin.y = self.frameMessageOriginalY - rect.height
+            
+            let bottomOffset:CGPoint = CGPointMake(0, self.resultScrollView.contentSize.height - self.resultScrollView.bounds.size.height)
+            self.resultScrollView.setContentOffset(bottomOffset, animated: false)
+            
+            }, completion: {
+                (finished:Bool) in
+                
+        })
+        
+    }
+    
+    func keyboardWillHide(notification:NSNotification) {
+        //let dict:NSDictionary = notification.userInfo!
+        //let s:NSValue = dict.valueForKey(UIKeyboardFrameEndUserInfoKey) as! NSValue
+        UIView.animateWithDuration(0.3, delay: 0, options: .CurveLinear, animations: {
+            
+            self.resultScrollView.frame.origin.y = self.scrollViewOriginalY
+            self.frameMessageView.frame.origin.y = self.frameMessageOriginalY
+            
+            let bottomOffset:CGPoint = CGPointMake(0, self.resultScrollView.contentSize.height - self.resultScrollView.bounds.size.height)
+            self.resultScrollView.setContentOffset(bottomOffset, animated: false)
+            
+            }, completion: {
+                (finished:Bool) in
+                
+        })
+    }
+    
+    func didTapScrollView() {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func sendBtn_click(sender: AnyObject) {
+        
+        if messageTextView.text == "" {
+            print("no text")
+        } else {
+            var groupMessageTable = PFObject(className: "GroupMessages")
+            groupMessageTable["group"] = groupConversationVC_title
+            groupMessageTable["sender"] = userName
+            groupMessageTable["message"] = self.messageTextView.text
+            groupMessageTable.saveInBackgroundWithBlock({ (success, error) -> Void in
+                if success == true {
+                    
+                    var senderSet = Set([""])
+                    senderSet.removeAll(keepCapacity: false)
+                    
+                    for var i = 0; i <= self.senderArray.count - 1; i++ {
+                        if self.senderArray[i] != userName {
+                            senderSet.insert(self.senderArray[i])
+                        }
+                    }
+                    
+                    var senderSetArray: NSArray = Array(senderSet)
+                    
+                    for var i2 = 0; i2 <= senderSetArray.count - 1; i2++ {
+                        print(senderSetArray[i2])
+                    }
+                    
+                    print("message sent")
+                    
+                    self.messageTextView.text == ""
+                    self.mlabel.hidden = false
+                    self.refreshResults()   
+                }
+            })
+        }
+    }
     /*
     // MARK: - Navigation
 

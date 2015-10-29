@@ -34,6 +34,7 @@
 		32A8BD491BC1A265004A7686 /* ChatAppHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A8BD481BC1A265004A7686 /* ChatAppHeader.m */; settings = {ASSET_TAGS = (); }; };
 		32A8BD4F1BC1B6E9004A7686 /* UserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8BD4E1BC1B6E9004A7686 /* UserVC.swift */; settings = {ASSET_TAGS = (); }; };
 		32A8BD511BC1B772004A7686 /* resultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A8BD501BC1B772004A7686 /* resultCell.swift */; settings = {ASSET_TAGS = (); }; };
+		32ACA1771BE02D7E001550F1 /* groupConversionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32ACA1761BE02D7E001550F1 /* groupConversionVC.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		32A8BD481BC1A265004A7686 /* ChatAppHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatAppHeader.m; sourceTree = "<group>"; };
 		32A8BD4E1BC1B6E9004A7686 /* UserVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserVC.swift; sourceTree = "<group>"; };
 		32A8BD501BC1B772004A7686 /* resultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resultCell.swift; sourceTree = "<group>"; };
+		32ACA1761BE02D7E001550F1 /* groupConversionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupConversionVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				32A8BD181BC19CB3004A7686 /* AppDelegate.swift */,
 				32A8BD1A1BC19CB3004A7686 /* ViewController.swift */,
 				32A8BD1C1BC19CB3004A7686 /* Main.storyboard */,
+				32ACA1761BE02D7E001550F1 /* groupConversionVC.swift */,
 				322848121BDE98BE00B53C94 /* groupVC.swift */,
 				322848101BDDB3E200B53C94 /* messageCell.swift */,
 				3228480E1BDDB20300B53C94 /* messagesVC.swift */,
@@ -223,6 +226,7 @@
 				32A8BD1B1BC19CB3004A7686 /* ViewController.swift in Sources */,
 				322848131BDE98BE00B53C94 /* groupVC.swift in Sources */,
 				3228480F1BDDB20300B53C94 /* messagesVC.swift in Sources */,
+				32ACA1771BE02D7E001550F1 /* groupConversionVC.swift in Sources */,
 				328ABF8B1BC5DFFE00F64762 /* conversationController.swift in Sources */,
 				322848111BDDB3E200B53C94 /* messageCell.swift in Sources */,
 				32A8BD511BC1B772004A7686 /* resultCell.swift in Sources */,
